@@ -2,7 +2,9 @@
 
 const sharp = require("sharp");
 
-type Options = { background?: number, quality: number };
+type Kernels = "nearest"|"cubic"|"mitchell"|"lanczos2"|"lanczos3";
+
+type Options = { background?: number, quality: number, kernel?: Kernels };
 
 type Parameters = {
   width: number,
@@ -21,7 +23,7 @@ module.exports = (imagePath: string) => {
       options,
     }: Parameters): Promise<{ width: number, height: number, data: Buffer }> =>
       new Promise((resolve, reject) => {
-        let resized = image.clone().resize(width, null);
+        let resized = image.clone().resize({width, kernel: options.kernel});
 
         if (options.background) {
           resized = resized.flatten({
