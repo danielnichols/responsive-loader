@@ -64,6 +64,7 @@ export default function loader(content: Buffer) {
     generatedSizes,
     esModule,
     emitFile,
+    kernel,
   }: ParsedConfig = parseConfig(this, config, DEFAULTS);
 
   const sizes = parsedResourceQuery.size ||
@@ -133,6 +134,7 @@ export default function loader(content: Buffer) {
   const adapterOptions = Object.assign({}, config, {
     quality,
     background,
+    kernel,
   });
   const img = adapter(this.resourcePath);
 

@@ -44,6 +44,11 @@
     "emitFile": {
       "description": "Enables/Disables emit files.",
       "type": "boolean"
+    },
+    "kernel": {
+      "enum": [
+        "nearest", "cubic", "mitchell", "lanczos2", "lanczos3"
+      ]
     }
   },
   "type": "object"
