@@ -18,6 +18,7 @@ type Config = {
   disable: ?boolean,
   esModule?: boolean,
   emitFile?: boolean,
+  kernel?: "nearest" | "cubic" | "mitchell" | "lanczos2" | "lanczos3";
 };
 type ParsedConfig = {
   outputContext: string,
